@@ -5,12 +5,12 @@ char *ft_strchr(const char *str, int search_str)
     int i;
 
     i = 0;
-    while (*(str + i) != (char)search_str)
+    while (*(str + i) != '\0')
     {
-        if (*(str + i) == '\0')
-            return (NULL);
+        if (*(str + i) == (char)search_str)
+            return ((char *)str + i);
         i++;
     }
 
-    return ((char *)str + i);
+    return (NULL);
 }
