@@ -11,6 +11,5 @@ char *ft_strchr(const char *str, int search_str)
             return ((char *)str + i);
         i++;
     }
-
     return (NULL);
 }
