@@ -25,7 +25,6 @@ fclean: clean
 re: fclean all
 
 test: $(NAME)
-	$(CC) -o main main.c -L. -l$(LIBRARY:lib%=%) && ./main
-	rm -f main
+	$(CC) -o main main.c -L. -l$(LIBRARY:lib%=%) && ./main && rm -f main
 
 .PHONY: all clean fclean re test
