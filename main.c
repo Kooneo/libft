@@ -4,7 +4,7 @@
 
 int main()
 {
-     char dest1[20] = "Hello ";
+    char dest1[20] = "Hello ";
     char dest2[20] = "Hello ";
     char dest3[20] = "Hello ";
     char dest4[5] = "Hi";
