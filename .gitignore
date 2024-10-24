@@ -2,3 +2,4 @@
 *.a
 ./main.c
 .vscode/
+/test
