@@ -1,13 +1,23 @@
-#include "libft.h"
-#include <stdio.h>
-#include <string.h>
-#include	<stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/22 14:00:24 by zbakour           #+#    #+#             */
+/*   Updated: 2024/10/25 19:21:01 by zbakour          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main()
+#include "libft.h"
+
+int	main(void)
 {
-    char str[] = "--56";
-    printf("%d\n", ft_atoi(str));
-    printf("%d", atoi(str));
-    // printf("%d", 325 / 10);
-    return 0;
+	const char *str1 = "Hello";
+	const char *str2 = "world";
+	char *str3 = ft_strjoin(str1, str2);
+
+	printf("str3: %s\n", str3);
+	return (0);
 }

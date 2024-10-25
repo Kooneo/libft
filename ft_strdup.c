@@ -1,16 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 14:12:05 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/22 14:15:58 by zbakour          ###   ########.fr       */
+/*   Created: 2024/10/25 13:26:13 by zbakour           #+#    #+#             */
+/*   Updated: 2024/10/25 13:57:11 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include "libft.h"
+
+char	*ft_strdup(const char *str)
 {
-	return (c >= '0' && c <= '9');
+	size_t str_len;
+	char *new_str;
+
+	str_len = ft_strlen(str);
+	new_str = (char *)malloc((str_len + 1) * sizeof(char));
+	if (new_str != NULL)
+	{
+		ft_memcpy(new_str, str, str_len + 1);
+		return ((char *)new_str);
+	}
+	return (NULL);
 }
