@@ -14,10 +14,6 @@
 
 int	main(void)
 {
-	const char *str1 = "Hello";
-	const char *str2 = "world";
-	char *str3 = ft_strjoin(str1, str2);
-
-	printf("str3: %s\n", str3);
+	printf("str3: %s\n", ft_itoa(42));
 	return (0);
 }
