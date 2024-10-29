@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:29:04 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/25 19:04:03 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/10/26 19:56:13 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t str_len;
-	char *substr_mem;
+	size_t	str_len;
+	char	*substr_mem;
+
 	if (s == NULL)
 		return (NULL);
 	str_len = ft_strlen(s);

@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 14:00:24 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/26 17:33:50 by zbakour          ###   ########.fr       */
+/*   Created: 2024/10/29 19:45:55 by zbakour           #+#    #+#             */
+/*   Updated: 2024/10/29 19:56:43 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+int	ft_lstsize(t_list *lst)
 {
-	ft_split("++ab+gef+ME+ABRR++", '+');
+	int		size;
+	t_list	*current;
 
-	return (0);
+	current = lst;
+	size = 0;
+	while (current != NULL)
+	{
+		size++;
+		current = current->next;
+	}
+	return (size);
 }

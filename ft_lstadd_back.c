@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 14:00:24 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/26 17:33:50 by zbakour          ###   ########.fr       */
+/*   Created: 2024/10/29 20:12:11 by zbakour           #+#    #+#             */
+/*   Updated: 2024/10/29 20:29:43 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	ft_split("++ab+gef+ME+ABRR++", '+');
+	t_list	*lastnode;
 
-	return (0);
+	if (*lst == NULL)
+		*lst = new;
+	else
+	{
+		lastnode = ft_lstlast(*lst);
+		lastnode->next = new;
+	}
+	new->next = NULL;
 }

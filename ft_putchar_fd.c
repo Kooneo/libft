@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 14:00:24 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/26 17:33:50 by zbakour          ###   ########.fr       */
+/*   Created: 2024/10/28 14:39:00 by zbakour           #+#    #+#             */
+/*   Updated: 2024/10/28 14:58:06 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+void	ft_putchar_fd(char c, int fd)
 {
-	ft_split("++ab+gef+ME+ABRR++", '+');
-
-	return (0);
+	if (!fd)
+		return ;
+	write(fd, &c, 1);
 }

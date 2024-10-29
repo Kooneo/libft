@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 14:00:24 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/26 17:33:50 by zbakour          ###   ########.fr       */
+/*   Created: 2024/10/24 18:24:03 by zbakour           #+#    #+#             */
+/*   Updated: 2024/10/26 19:44:32 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(void)
+void	*ft_calloc(size_t nitems, size_t size)
 {
-	ft_split("++ab+gef+ME+ABRR++", '+');
+	size_t	total_mem;
+	void	*p_mem;
 
-	return (0);
+	if (nitems && size && size > SIZE_MAX / nitems)
+		return (NULL);
+	total_mem = nitems * size;
+	p_mem = malloc(total_mem);
+	if (p_mem != NULL)
+	{
+		ft_bzero(p_mem, total_mem);
+		return (p_mem);
+	}
+	return (NULL);
 }

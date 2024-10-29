@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 19:00:27 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/25 19:21:18 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/10/26 19:46:15 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,24 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *string;
-	size_t s1_len;
-	size_t s2_len;
-	size_t i;
+	char	*string;
+	size_t	len_s1;
+	size_t	len_s2;
 
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2);
-
-	string = (char *)malloc((s1_len + s2_len + 1) * sizeof(char));
-
+	len_s1 = 0;
+	len_s2 = 0;
+	if (s1 != NULL)
+		len_s1 = ft_strlen(s1);
+	if (s2 != NULL)
+		len_s2 = ft_strlen(s2);
+	string = (char *)malloc((len_s1 + len_s2 + 1) * sizeof(char));
 	if (!string)
 		return (NULL);
-	i = 0;
-	while (i < (s1_len + s2_len))
-	{
-		string[i] = s1[i];
-		i++;
-	}
-
-	while (i < (s1_len + s2_len))
-	{
-		string[i] = s2[i];
-		i++;
-	}
-
-	string[i] = '\0';
-
+	if (s1)
+		ft_strlcpy(string, s1, len_s1 + 1);
+	else
+		string[0] = '\0';
+	if (s2)
+		ft_strlcat(string, s2, len_s1 + len_s2 + 1);
 	return (string);
 }
