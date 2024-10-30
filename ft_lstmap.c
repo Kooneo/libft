@@ -1,30 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/24 18:24:03 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/30 18:37:37 by zbakour          ###   ########.fr       */
+/*   Created: 2024/10/30 18:55:19 by zbakour           #+#    #+#             */
+/*   Updated: 2024/10/30 18:55:42 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nitems, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	total_mem;
-	void	*p_mem;
-
-	if (nitems && size && size > SIZE_MAX / nitems)
-		return (NULL);
-	total_mem = nitems * size;
-	p_mem = malloc(total_mem);
-	if (p_mem != NULL)
-	{
-		ft_bzero(p_mem, total_mem);
-		return (p_mem);
-	}
-	return (NULL);
 }
