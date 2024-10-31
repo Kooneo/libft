@@ -1,90 +1,195 @@
-// /* ************************************************************************** */
-// /*                                                                            */
-// /*                                                        :::      ::::::::   */
-// /*   ft_split.c                                         :+:      :+:    :+:   */
-// /*                                                    +:+ +:+         +:+     */
-// /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
-// /*                                                +#+#+#+#+#+   +#+           */
-// /*   Created: 2024/10/26 14:12:29 by zbakour           #+#    #+#             */
-// /*   Updated: 2024/10/30 16:57:26 by zbakour          ###   ########.fr       */
-// /*                                                                            */
-// /* ************************************************************************** */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/26 14:12:29 by zbakour           #+#    #+#             */
+/*   Updated: 2024/10/31 19:05:01 by zbakour          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// #include "libft.h"
+#include "libft.h"
 
-// char	**ft_split(char const *s, char c)
-// {
-// 	int		i;
-// 	int		count;
-// 	int		sub_strlen;
-// 	char	*new_str;
-// 	int		current_index;
-// 	int		start_index;
-// 	char	**result;
+static int	ft_count_word(const char *input, char delimiter, int *length)
+{
+	int	i;
+	int	word_count;
 
-// 	i = 0;
-// 	count = 0;
-// 	new_str = ft_strtrim(s, &c);
-// 	// Calculate the number of substrings
-// 	while (new_str[i] != '\0')
-// 	{
-// 		// If we find the start of a new substring
-// 		if (new_str[i] != c)
-// 		{
-// 			count++;
-// 			while (new_str[i] != c && new_str[i] != '\0')
-// 				i++; // Move to the end of the substring
-// 		}
-// 		else
-// 			i++; // Skip separators
-// 	}
-// 	// Allocate memory for the array of strings
-// 	result = malloc((count + 1) * sizeof(char *));
-// 	if (!result)
-// 		return (NULL);
-// 	// Reset variables for extraction
-// 	i = 0;
-// 	current_index = 0;
-// 	// Extract each substring
-// 	while (new_str[i] != '\0')
-// 	{
-// 		if (new_str[i] != c)
-// 		{
-// 			start_index = i;
-// 			sub_strlen = 0;
-// 			while (new_str[i] != c && new_str[i] != '\0')
-// 			{
-// 				sub_strlen++;
-// 				i++;
-// 			}
-// 			// Allocate and copy substring
-// 			result[current_index] = malloc((sub_strlen + 1) * sizeof(char));
-// 			if (!result[current_index])
-// 			{
-// 				// Free previously allocated memory on failure
-// 				while (current_index > 0)
-// 					free(result[--current_index]);
-// 				free(result);
-// 				return (NULL);
-// 			}
-// 			strncpy(result[current_index], &new_str[start_index], sub_strlen);
-// 			result[current_index][sub_strlen] = '\0';
-// 			current_index++;
-// 		}
-// 		else
-// 		{
-// 			i++;
-// 		}
-// 	}
-// 	// Null-terminate the array
-// 	result[current_index] = NULL;
-// 	return (result);
-// }
-
+	if (!length || !input)
+		return (0);
+	*length = 0;
+	word_count = 0;
+	i = 0;
+	while (input[i])
+	{
+		if (input[i] != delimiter)
+		{
+			(*length)++;
+			if (input[i + 1] == delimiter || input[i + 1] == '\0')
+				word_count++;
+		}
+		i++;
+	}
+	return (word_count);
+}
 
 char	**ft_split(char const *s, char c)
 {
-    (void)s;
-    (void)c;
-    return (0);
+	char	**result;
+	int		total_len;
+	int		word_count;
+	char	*trimmed_str;
+	char	set[2];
+	int		i;
+	int		word_start;
+	int		result_index;
+	int		j;
+
+	if (!s)
+		return (NULL);
+	set[0] = c;
+	set[1] = '\0';
+	i = 0;
+	result_index = 0;
+	trimmed_str = ft_strtrim(s, set);
+	if (!trimmed_str)
+		return (NULL);
+	word_count = ft_count_word(trimmed_str, c, &total_len);
+	result = (char **)malloc((word_count + 1) * sizeof(char *));
+	if (!result)
+	{
+		free(trimmed_str);
+		return (NULL);
+	}
+	while (trimmed_str[i] != '\0')
+	{
+		while (trimmed_str[i] == c)
+			i++;
+		if (trimmed_str[i] != c && trimmed_str[i] != '\0')
+		{
+			word_start = i;
+			while (trimmed_str[i] && trimmed_str[i] != c)
+				i++;
+			result[result_index] = ft_substr(trimmed_str, word_start, i
+					- word_start);
+			j = 0;
+			if (!result[result_index])
+			{
+				while (j < result_index)
+				{
+					free(result[j]);
+					j++;
+				}
+				free(result);
+				free(trimmed_str);
+				return (NULL);
+			}
+			result_index++;
+		}
+		if (trimmed_str[i] != '\0')
+			i++;
+	}
+	result[result_index] = NULL;
+	free(trimmed_str);
+	return (result);
 }
+// #include <stdio.h>
+
+// int	main(void)
+// {
+// 	// 	// Test cases
+// 	// 	// const char *test1 = "Hello,World,This,Is,A,Test";
+// 	// 	const char *test2 = "   Hello   World   Test   ";
+// 	// 	const char *test3 = "OneWord";
+// 	// 	const char *test4 = ",,,Hello,,World,,,";
+// 	// 	const char *test5 = "";
+
+// 	// 	// Test arrays
+// 	char **result1 = ft_split("hello!", ' ');
+// 	// 	char **result2 = ft_split(test2, ' ');
+// 	// 	char **result3 = ft_split(test3, ' ');
+// 	// 	char **result4 = ft_split(test4, ',');
+// 	// 	char **result5 = ft_split(test5, ',');
+
+// 	// 	// Print results
+// 	printf("\nTest 1 (split by comma): \n");
+// 	if (result1)
+// 	{
+// 		for (int i = 0; result1[i] != NULL; i++)
+// 			printf("[%s]\n", result1[i]);
+// 	}
+// 	else
+// 		printf("NULL result\n");
+
+// 	// 	printf("\nTest 2 (split by space): \n");
+// 	// 	if (result2)
+// 	// 	{
+// 	// 		for (int i = 0; result2[i] != NULL; i++)
+// 	// 			printf("[%s]\n", result2[i]);
+// 	// 	}
+// 	// 	else
+// 	// 		printf("NULL result\n");
+
+// 	// 	printf("\nTest 3 (single word): \n");
+// 	// 	if (result3)
+// 	// 	{
+// 	// 		for (int i = 0; result3[i] != NULL; i++)
+// 	// 			printf("[%s]\n", result3[i]);
+// 	// 	}
+// 	// 	else
+// 	// 		printf("NULL result\n");
+
+// 	// 	printf("\nTest 4 (multiple delimiters): \n");
+// 	// 	if (result4)
+// 	// 	{
+// 	// 		for (int i = 0; result4[i] != NULL; i++)
+// 	// 			printf("[%s]\n", result4[i]);
+// 	// 	}
+// 	// 	else
+// 	// 		printf("NULL result\n");
+
+// 	// 	printf("\nTest 5 (empty string): \n");
+// 	// 	if (result5)
+// 	// 	{
+// 	// 		for (int i = 0; result5[i] != NULL; i++)
+// 	// 			printf("[%s]\n", result5[i]);
+// 	// 	}
+// 	// 	else
+// 	// 		printf("NULL result\n");
+
+// 	// 	// Free allocated memory
+// 	// 	if (result1)
+// 	// 	{
+// 	// 		for (int i = 0; result1[i] != NULL; i++)
+// 	// 			free(result1[i]);
+// 	// 		free(result1);
+// 	// 	}
+// 	// 	if (result2)
+// 	// 	{
+// 	// 		for (int i = 0; result2[i] != NULL; i++)
+// 	// 			free(result2[i]);
+// 	// 		free(result2);
+// 	// 	}
+// 	// 	if (result3)
+// 	// 	{
+// 	// 		for (int i = 0; result3[i] != NULL; i++)
+// 	// 			free(result3[i]);
+// 	// 		free(result3);
+// 	// 	}
+// 	// 	if (result4)
+// 	// 	{
+// 	// 		for (int i = 0; result4[i] != NULL; i++)
+// 	// 			free(result4[i]);
+// 	// 		free(result4);
+// 	// 	}
+// 	// 	if (result5)
+// 	// 	{
+// 	// 		for (int i = 0; result5[i] != NULL; i++)
+// 	// 			free(result5[i]);
+// 	// 		free(result5);
+// 	// 	}
+
+// 	return (0);
+// }

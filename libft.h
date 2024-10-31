@@ -6,17 +6,14 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:54:39 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/30 18:56:25 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/10/31 18:20:04 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
 # include <stdlib.h>
-
-// testing
 # include <unistd.h>
 
 typedef struct s_list
@@ -71,4 +68,5 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+
 #endif
