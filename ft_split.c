@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:12:29 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/31 19:05:01 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/01 20:03:29 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ char	**ft_split(char const *s, char c)
 {
 	char	**result;
 	int		total_len;
-	int		word_count;
 	char	*trimmed_str;
 	char	set[2];
 	int		i;
@@ -56,8 +55,8 @@ char	**ft_split(char const *s, char c)
 	trimmed_str = ft_strtrim(s, set);
 	if (!trimmed_str)
 		return (NULL);
-	word_count = ft_count_word(trimmed_str, c, &total_len);
-	result = (char **)malloc((word_count + 1) * sizeof(char *));
+	result = (char **)malloc((ft_count_word(trimmed_str, c, &total_len) + 1)
+			* sizeof(char *));
 	if (!result)
 	{
 		free(trimmed_str);
@@ -96,7 +95,6 @@ char	**ft_split(char const *s, char c)
 	return (result);
 }
 // #include <stdio.h>
-
 // int	main(void)
 // {
 // 	// 	// Test cases
