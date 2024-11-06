@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:20:14 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/25 20:16:54 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/03 20:05:07 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t n)
 	size_t	i;
 
 	dst_len = 0;
-	src_len = 0;
+	src_len = ft_strlen(src);
 	i = 0;
 	while (dst_len < n && dst[dst_len] != '\0')
 		dst_len++;
-	while (src[src_len] != '\0')
-		src_len++;
 	if (dst_len >= n)
 		return (n + src_len);
 	while (dst_len + i < n - 1 && src[i])

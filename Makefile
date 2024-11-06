@@ -26,7 +26,7 @@ OBONUS = $(BONUS_SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OFILES)
-	ar -rcs $@ $^
+	ar -rcs $(NAME) $(OFILES)
 	@echo "Static library $(NAME) created."
 
 %.o: %.c $(HEADER)

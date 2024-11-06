@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:12:59 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/30 18:07:54 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/04 12:08:51 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (!fd)
+	if (fd < 0)
 		return ;
 	if (n == -2147483648)
 		return (ft_putstr_fd("-2147483648", fd));

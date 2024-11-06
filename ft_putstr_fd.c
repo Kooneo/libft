@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:59:22 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/30 15:58:21 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/04 12:07:20 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
-	if (!fd || !s)
+	if (!s || fd < 0)
 		return ;
 	i = 0;
 	while (s[i] != '\0')

@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:03:45 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/30 15:58:26 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/04 12:06:47 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	if (!s || !fd)
+	if (!s || fd < 0)
 		return ;
 	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);
