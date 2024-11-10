@@ -6,11 +6,13 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 14:20:14 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/03 20:05:07 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:45:21 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t n)
 {

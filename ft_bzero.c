@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:03:28 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/22 16:13:40 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/10 14:23:03 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 void	ft_bzero(void *dst, size_t n)
 {
 	unsigned char	*p;
+	size_t			i;
 
+	i = 0;
 	p = (unsigned char *)dst;
-	while (n--)
+	while (i < n)
 	{
-		*p = 0;
-		p++;
+		p[i] = 0;
+		i++;
 	}
 }

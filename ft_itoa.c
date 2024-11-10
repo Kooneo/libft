@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 10:03:02 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/02 18:06:18 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/10 21:25:22 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,6 @@ static size_t	ft_intlen(int n)
 	return (i);
 }
 
-static char	*handle_zero(void)
-{
-	char	*result;
-
-	result = (char *)malloc(2 * sizeof(char));
-	if (!result)
-		return (NULL);
-	result[0] = '0';
-	result[1] = '\0';
-	return (result);
-}
-
 static void	fill_string(char *result, long long nb, size_t str_len,
 		int is_negative)
 {
@@ -75,7 +63,7 @@ char	*ft_itoa(int n)
 	is_negative = 0;
 	str_len = ft_intlen(nb);
 	if (nb == 0)
-		return (handle_zero());
+		return (ft_strdup("0"));
 	if (nb < 0)
 	{
 		nb = -nb;
