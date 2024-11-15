@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 20:12:11 by zbakour           #+#    #+#             */
-/*   Updated: 2024/10/31 18:42:51 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/11 15:37:53 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*lastnode;
 
+	if (!new || !lst)
+		return ;
 	if (*lst == NULL)
 		*lst = new;
 	else

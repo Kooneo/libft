@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 18:55:19 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/07 18:40:31 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/11 15:35:25 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*newnode;
 	t_list	*head;
 
+	if (!lst || !f || !del)
+		return (NULL);
 	head = NULL;
 	while (lst != NULL)
 	{

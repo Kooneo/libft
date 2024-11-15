@@ -4,8 +4,6 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror 
 
-HEADER = libft.h
-
 MANDATORY_SRC = ft_isalpha.c\
 				ft_isdigit.c\
 				ft_isalnum.c\
@@ -59,6 +57,9 @@ all : $(NAME)
 
 $(NAME) : $(OFILES)
 	ar rcs $(NAME) $(OFILES)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 bonus : $(OBONUS)
 

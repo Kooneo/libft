@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 21:28:26 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/10 14:31:28 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/11 15:13:21 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,9 @@ static void	find_trim_bounds(const char *s1, const char *set, char **start,
 	*start = (char *)s1;
 	*end = (char *)(s1 + ft_strlen(s1) - 1);
 	while (**start && ft_strchr(set, **start))
-	{
 		(*start)++;
-	}
 	while (*end > *start && ft_strchr(set, **end))
-	{
 		(*end)--;
-	}
 }
 
 char	*ft_strtrim(char const *s1, char const *set)

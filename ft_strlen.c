@@ -6,7 +6,7 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:55:09 by zbakour           #+#    #+#             */
-/*   Updated: 2024/11/10 14:23:11 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/11/11 11:24:05 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ size_t	ft_strlen(const char *str)
 
 	count = 0;
 	while (str[count])
-	{
 		count++;
-	}
 	return (count);
 }
