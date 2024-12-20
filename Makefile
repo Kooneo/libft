@@ -52,7 +52,6 @@ MANDATORY_SRC = ft_isalpha.c\
 				handle_pointer.c \
 				handle_string.c \
 				handle_unsigned.c \
-				get_next_line.c \
 				get_next_line_bonus.c
 
 BONUS_SRC = ft_lstadd_back_bonus.c\
