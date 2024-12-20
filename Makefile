@@ -38,6 +38,22 @@ MANDATORY_SRC = ft_isalpha.c\
 				ft_putstr_fd.c\
 				ft_putendl_fd.c\
 				ft_putnbr_fd.c\
+				ft_printf.c \
+				ft_decimal_to_hex.c \
+				ft_puthex.c \
+				ft_putnbr.c \
+				ft_putubr.c \
+				ft_safe_write.c \
+				handle_char.c \
+				handle_format.c \
+				handle_hex.c \
+				handle_integer.c \
+				handle_percent.c \
+				handle_pointer.c \
+				handle_string.c \
+				handle_unsigned.c \
+				get_next_line.c \
+				get_next_line_bonus.c
 
 BONUS_SRC = ft_lstadd_back_bonus.c\
 			ft_lstadd_front_bonus.c\
