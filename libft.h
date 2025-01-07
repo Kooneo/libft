@@ -6,18 +6,18 @@
 /*   By: zbakour <zbakour@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 13:54:39 by zbakour           #+#    #+#             */
-/*   Updated: 2024/12/20 16:32:21 by zbakour          ###   ########.fr       */
+/*   Updated: 2024/12/28 18:41:24 by zbakour          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdarg.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdarg.h>
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
@@ -73,22 +73,21 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 
-int	safe_write(const char *str, int len, int *count);
-int	ft_putnbr(int n, int count);
-int	ft_printf(const char *s, ...);
-int	handle_format(char specifier, va_list args, int *count);
-int	handle_char(va_list args);
-int	handle_string(va_list args);
-int	handle_pointer(va_list args);
-int	handle_integer(va_list args);
-int	handle_unsigned(va_list args);
-int	handle_hex(va_list args, int uppercase);
-int	handle_percent(void);
-int	ft_putubr(unsigned int n, int count);
-int	ft_putnbr(int n, int count);
-int	ft_puthex(char *base, unsigned long n, int *count);
-int	ft_decimal_to_hex(char *base, unsigned int num);
-
+int					safe_write(const char *str, int len, int *count);
+int					ft_putnbr(int n, int count);
+int					ft_printf(const char *s, ...);
+int					handle_format(char specifier, va_list args, int *count);
+int					handle_char(va_list args);
+int					handle_string(va_list args);
+int					handle_pointer(va_list args);
+int					handle_integer(va_list args);
+int					handle_unsigned(va_list args);
+int					handle_hex(va_list args, int uppercase);
+int					handle_percent(void);
+int					ft_putubr(unsigned int n, int count);
+int					ft_putnbr(int n, int count);
+int					ft_puthex(char *base, unsigned long n, int *count);
+int					ft_decimal_to_hex(char *base, unsigned int num);
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -96,8 +95,8 @@ int	ft_decimal_to_hex(char *base, unsigned int num);
 
 # define MAX_FD 1024
 
-char	*get_string(char *str);
-char	*handle_remaining(char *buff);
-void	read_save(int fd, char **str);
-char	*get_next_line(int fd);
+char				*get_string(char *str);
+char				*handle_remaining(char *buff);
+void				read_save(int fd, char **str);
+char				*get_next_line(int fd);
 #endif
